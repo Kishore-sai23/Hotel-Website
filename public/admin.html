@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Sri Sai Krishna Hotel</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-screen" class="login-container">
+        <h2>Staff Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="login-btn">Log In</button>
+            <p id="login-error" class="error-message" style="display: none;"></p>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 15px;">
+                Default: Username 'admin', Password 'password123'
+            </p>
+        </form>
+    </div>
+
+    <div id="portal-view" style="display: none;">
+        <header class="admin-header">
+            <h1>Sri Sai Krishna Hotel - Staff Portal</h1>
+            <div class="header-actions">
+                <p>Welcome, <span id="staff-username">Staff</span></p>
+                <button id="logout-btn" class="logout-btn">Log Out</button>
+            </div>
+        </header>
+        
+        <main class="admin-main">
+            <section class="request-list-container">
+                <h2>Requests Overview</h2>
+                <p id="request-filter-info">Showing All Requests (Pending, Confirmed, etc.)</p>
+                <div id="request-list">
+                    <p>Loading requests...</p>
+                </div>
+            </section>
+
+            <section class="reply-panel-container">
+                <h2>Reply/Approval Panel</h2>
+                <div id="booking-details-view" style="margin-bottom: 20px; padding: 15px; border: 1px dashed #004aad; border-radius: 6px; display: none;">
+                    </div>
+                <div id="reply-panel" style="display: none;">
+                    <form id="reply-form">
+                        <input type="hidden" id="reply-id">
+                        <input type="hidden" id="reply-customer-email">
+
+                        <div class="form-group">
+                            <label>Request Type:</label>
+                            <strong id="reply-type"></strong>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Customer Email:</label>
+                            <input type="email" id="reply-email-display" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reply-message">Message to Customer:</label>
+                            <textarea id="reply-message" required placeholder="Type your confirmation or reply message here..."></textarea>
+                        </div>
+
+                        <div class="form-group status-actions">
+                            <label for="reply-status">Action:</label>
+                            <select id="reply-status" required>
+                                <option value="Replied">Send Reply</option>
+                                <option value="Confirmed">Approve & Confirm Booking</option>
+                                <option value="Denied">Deny Booking</option>
+                                <option value="Resolved">Resolve Inquiry</option>
+                            </select>
+                            <button type="submit" class="send-btn">Send & Update Status</button>
+                        </div>
+                    </form>
+                </div>
+                <p id="no-selection" style="text-align: center; padding: 20px;">Select a request from the list to view details or approve.</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

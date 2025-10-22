@@ -1,0 +1,267 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.admin-header {
+    background: linear-gradient(90deg, #004aad, #1e5edc);
+    color: white;
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    background-color: #ffcc00;
+    color: #004aad;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #ff9900;
+}
+
+.admin-main {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.request-list-container, .reply-panel-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.request-list-container {
+    flex: 1;
+}
+
+.reply-panel-container {
+    flex: 2;
+}
+
+/* Login Screen Styles */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e0f7fa;
+}
+
+#login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-width: 350px;
+}
+
+.login-container h2 {
+    color: #004aad;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.login-container .form-group {
+    margin-bottom: 15px;
+}
+
+.login-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #1e5edc;
+}
+
+.error-message {
+    color: #F44336;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Request List Styling */
+#request-list {
+    margin-top: 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.request-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 5px solid #004aad;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color: #f9f9f9;
+}
+
+.request-item:hover {
+    background-color: #f0f0f0;
+}
+
+.request-item.selected {
+    background-color: #e0f7fa;
+    border-left-color: #ffcc00;
+    box-shadow: 0 0 5px rgba(0, 74, 173, 0.3);
+}
+
+.request-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.request-item p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.status-tag {
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.status-tag.Pending {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.status-tag.Confirmed {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-tag.Replied, .status-tag.Resolved {
+    background-color: #004aad;
+    color: white;
+}
+
+.status-tag.Denied {
+    background-color: #F44336;
+    color: white;
+}
+
+
+/* Reply Panel Styling */
+#reply-form {
+    padding: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#reply-email-display, #reply-message, #reply-status {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#reply-email-display:disabled {
+    background-color: #eee;
+    color: #333;
+}
+
+.status-actions {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.status-actions select {
+    flex: 1;
+}
+
+.send-btn {
+    flex: 1;
+    background-color: #ffcc00;
+    color: #004aad;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+    background-color: #ff9900;
+}
+
+@media screen and (max-width: 800px) {
+    .admin-main {
+        flex-direction: column;
+    }
+    .status-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #login-form {
+        min-width: 90%;
+    }
+}

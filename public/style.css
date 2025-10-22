@@ -1,0 +1,822 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(276deg, #586f3e, #1e5edc);
+    padding: 15px 30px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    /* Kept only for alignment purposes */
+    height: 30px; /* Set height to align better with logo size */
+    display: flex;
+    align-items: center;
+}
+/* NEW LOGO STYLES */
+.navbar-logo {
+    height: 60px; /* Medium size for the navbar */
+    width: auto;
+}
+
+/* REMOVED: .navbar .logo styles for font-size, font-weight, letter-spacing */
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    color: white;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.navbar .nav-links li a:hover {
+    background-color: #ffcc00;
+    color: #004aad;
+}
+
+/* Carousel */
+.carousel-section {
+    position: relative;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.carousel .slide {
+    display: none;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel .slide.active {
+    display: block;
+}
+
+.carousel img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.carousel-overlay h1 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+}
+
+.carousel-overlay p {
+    font-size: 1.2rem;
+}
+
+/* Booking Form */
+.booking-section {
+    background: linear-gradient(90deg, #1e5edc, #004aad);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+.booking-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.booking-section form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.booking-section .form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.booking-section input, .booking-section select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.booking-btn {
+    background: linear-gradient(90deg, #ffcc00, #ff9900);
+    color: #004aad;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.booking-btn:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+}
+
+/* --- AMENITIES SECTION STYLES --- */
+.amenities-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.amenities-section h2 {
+    color: #004aad;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.amenity-item {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background-color: #f7f7f7;
+    transition: transform 0.3s;
+}
+
+.amenity-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.amenity-item i {
+    font-size: 2.5rem;
+    color: #ffcc00; /* Yellow accent for icons */
+    margin-bottom: 10px;
+}
+
+.amenity-item p {
+    margin: 0;
+    font-weight: 500;
+    color: #333;
+}
+/* --- STRIKING 3X2 LAYOUT FIX FOR DESKTOP --- */
+@media screen and (min-width: 800px) {
+    .amenities-grid {
+        grid-template-columns: repeat(3, 1fr); /* Forces exactly 3 columns */
+    }
+}
+/* --- END AMENITIES SECTION STYLES --- */
+
+/* About Section (Original Simple Style - used for footer links pages) */
+.about-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #f7f7f7;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-section .social-icons {
+    margin: 15px 0;
+}
+
+.contact-section .social-icons a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #004aad;
+    transition: 0.3s;
+}
+
+.contact-section .social-icons a:hover {
+    color: #ffcc00;
+}
+
+/* Contact Form Styles */
+.contact-form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form-container .form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contact-form-container input[type="text"],
+.contact-form-container input[type="email"],
+.contact-form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    margin-top: 5px;
+}
+
+.contact-form-container textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    background: linear-gradient(90deg, #004aad, #1e5edc);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    margin-top: 10px;
+    align-self: center;
+    max-width: 200px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(90deg, #1e5edc, #004aad);
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #1a1a1a;
+    color: #ffa500;
+    padding: 40px 20px 20px 20px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1 1 220px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    color: #ffa500;
+    font-size: 16px;
+}
+
+.footer-column p, 
+.footer-column li {
+    margin: 5px 0;
+    color: #fff;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ffa500;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-social a img {
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1); 
+    transition: filter 0.3s;
+}
+
+.footer-social a:hover img {
+    filter: brightness(0) invert(0.8) sepia(1) saturate(5) hue-rotate(30deg);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    color: #fff;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* MODAL STYLES */
+
+.modal-overlay {
+    display: none; 
+    position: fixed; 
+    z-index: 200; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content h3 {
+    color: #004aad;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.modal-content p {
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* --- ABOUT US REDESIGN STYLES (White BG) --- */
+
+.about-us-redesign {
+    background-color: #ffffff; /* WHITE background */
+    color: #333; /* Dark text */
+    padding: 50px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.about-top-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    padding: 0 40px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-text-content {
+    flex: 3;
+}
+
+.about-image-content {
+    flex: 2;
+    position: relative;
+    padding-top: 50px;
+}
+
+/* Titles */
+.red-title {
+    color: #000000; /* Kept red/orange for emphasis */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.white-title {
+    color: #333; /* Changed to dark text */
+}
+
+.welcome-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #666; /* Slightly darker text for readability */
+}
+
+/* Image Box and Overlay */
+.image-box {
+    position: relative;
+    border: 3px solid #e44d26;
+    padding: 15px;
+    background-color: #f7f7f7; /* Light background for the box */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hotel-album-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-overlay {
+    /* Overlay stays dark for contrast against the image/box */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.overlay-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    border: 1px solid white;
+    padding: 5px 10px;
+}
+
+.book-now-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.book-now-btn:hover {
+    background-color: white;
+    color: #1c1c1c;
+}
+
+/* WHY CHOOSE US Section */
+.why-choose-us-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* Vertical dividing line (Changed to a dark, subtle color) */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 1px;
+    height: 60%;
+    background-color: #ccc; 
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    width: 23%; 
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+}
+
+.timeline-item .icon-wrap {
+    background-color: #e44d26; 
+    color: white;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin: 0 auto 15px auto;
+    position: relative;
+    z-index: 10;
+}
+
+.timeline-item .icon-wrap::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #e44d26;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.timeline-item h3 {
+    color: #000000;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    font-size: 0.95rem;
+    color: #666; /* Dark text for readability on white background */
+    margin-bottom: 20px;
+}
+
+.timeline-item .number {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0); /* Very light grey number */
+}
+
+/* Responsive Adjustments for Mobile (Kept for layout integrity) */
+@media screen and (max-width: 992px) {
+    .about-top-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-image-content {
+        padding-top: 30px;
+    }
+
+    .timeline-container {
+        flex-direction: column;
+        padding: 0 20px;
+        align-items: center;
+    }
+    
+    .timeline-container::before {
+        left: 30px;
+        top: 0;
+        height: 100%;
+        background-color: #ccc;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        text-align: left;
+    }
+    
+    .timeline-item .icon-wrap {
+        position: absolute;
+        left: 0;
+        top: 25px;
+    }
+    
+    .timeline-item .number {
+        right: 20px;
+        transform: none;
+    }
+}
+
+/* --- ATTRACTIONS REDESIGN STYLES --- */
+
+.attractions-redesign-section {
+    background-color: #333; /* Dark background as requested */
+    padding: 50px 20px;
+    color: white;
+    min-height: 90vh;
+}
+
+.attractions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.attractions-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #e44d26; /* Red/Orange emphasis color */
+    border-bottom: 2px solid #e44d26;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.attractions-grid {
+    display: grid;
+    /* Defines the structure: 3 equal columns on the top row, 
+       then 2 larger columns on the second row */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    grid-template-areas: 
+        "img1 img2 img3"
+        "img4 img5 img5"; 
+}
+
+/* Mapping the images to the grid areas */
+.attraction-item:nth-child(1) { grid-area: img1; }
+.attraction-item:nth-child(2) { grid-area: img2; }
+.attraction-item:nth-child(3) { grid-area: img3; }
+.attraction-item:nth-child(4) { grid-area: img4; }
+.attraction-item:nth-child(5) { 
+    grid-area: img5; 
+    /* To slightly raise the bottom images for visual overlap, similar to the image */
+    margin-top: -100px; 
+}
+
+.attraction-item {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Fixed height for visual consistency */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.attraction-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.attraction-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay Styling for Kondapalli Fort (Image 5) */
+.kon-fort {
+    /* Ensures Image 5 is slightly taller than the others */
+    height: 350px; 
+}
+
+.fort-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.fort-text {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.fort-icons i {
+    font-size: 1rem;
+    margin-right: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .attractions-grid {
+        /* On smaller screens, stack them 2 columns wide */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        grid-template-areas: 
+            "img1 img2"
+            "img3 img3"
+            "img4 img5";
+    }
+    .attraction-item {
+        height: 250px;
+    }
+    .attraction-item:nth-child(3) {
+        /* Make image 3 span both columns on tablet */
+        grid-area: img3; 
+    }
+    .attraction-item:nth-child(5) {
+        /* Remove negative margin on small screens to prevent overlap issues */
+        margin-top: 0; 
+    }
+}
+@media screen and (max-width: 576px) {
+    .attractions-grid {
+        /* On phones, stack them all in one column */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "img1"
+            "img2"
+            "img3"
+            "img4"
+            "img5";
+    }
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalize Booking - Sri Sai Krishna Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .details-section {
+            padding: 50px 20px;
+            min-height: 80vh;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+        .details-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .price-summary {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #e0f7fa;
+        }
+        .price-summary h3 {
+            color: #004aad;
+            border-bottom: 2px solid #004aad;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .price-summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .price-summary table td {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .price-summary table tr:last-child td {
+            border-bottom: none;
+        }
+        .price-summary .total-row td {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e5edc;
+        }
+        .contact-form-final .form-group {
+            margin-bottom: 15px;
+        }
+        .contact-form-final label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .contact-form-final input[type="text"],
+        .contact-form-final input[type="email"],
+        .contact-form-final input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .final-book-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #ffcc00, #ff9900);
+            color: #004aad;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .final-book-btn:hover {
+            background: linear-gradient(90deg, #ff9900, #ffcc00);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (Simplified) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="SSK Hotel Logo" class="navbar-logo">
+                </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Booking Details Section (Step 2) -->
+    <section class="details-section">
+        <div class="details-container">
+            <h2 id="room-title">Finalize Your Booking</h2>
+            
+            <!-- Price Summary -->
+            <div class="price-summary">
+                <h3>Price Summary</h3>
+                <p>Room Type: <strong id="summary-room"></strong> | Dates: <strong id="summary-dates"></strong> (<span id="summary-nights"></span> nights)</p>
+                <table>
+                    <tr>
+                        <td>Base Rate per Night:</td>
+                        <td>₹<span id="base-rate-display">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Subtotal (Room Charge):</td>
+                        <td>₹<span id="subtotal-display">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td>GST/Taxes (<span id="gst-rate-display">18</span>%):</td>
+                        <td>₹<span id="gst-amount-display">0.00</span></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>TOTAL PAYABLE:</td>
+                        <td>₹<span id="total-cost-display">0.00</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Customer Contact Form -->
+            <h3 style="color: #004aad;">Contact Information</h3>
+            <form id="final-booking-form" class="contact-form-final">
+                <input type="hidden" id="hidden-room" name="room">
+                <input type="hidden" id="hidden-checkin" name="checkin">
+                <input type="hidden" id="hidden-checkout" name="checkout">
+                <input type="hidden" id="hidden-total-cost" name="total-cost">
+                <input type="hidden" id="hidden-base-rate" name="base-rate">
+                <input type="hidden" id="hidden-gst-rate" name="gst-rate">
+
+                <div class="form-group">
+                    <label for="customer-name">Your Full Name:</label>
+                    <input type="text" id="customer-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="customer-mobile">Mobile Number:</label>
+                    <input type="tel" id="customer-mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">Email Address:</label>
+                    <input type="email" id="customer-email" required placeholder="name@example.com">
+                </div>
+                
+                <button type="submit" class="final-book-btn">Confirm Reservation Request</button>
+            </form>
+        </div>
+    </section>
+ 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <!-- Footer content is the same as index.html -->
+    </footer>
+
+    <div id="booking-message-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <div class="modal-body">
+                <h3>Notice</h3>
+                <p id="modal-text">Message Placeholder</p>
+                <p>Thank you for choosing Sri Sai Krishna Hotel.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // --- MODAL LOGIC (Copied from script.js) ---
+        const modal = document.getElementById('booking-message-modal');
+        const closeBtn = document.querySelector('.close-btn');
+        function showModal(title, text, success = true) {
+            const modalTitle = modal.querySelector('h3');
+            const modalText = modal.querySelector('#modal-text');
+            modalTitle.textContent = title;
+            modalText.innerHTML = text;
+            modalTitle.style.color = success ? '#004aad' : '#F44336';
+            modal.style.display = 'flex';
+        }
+        function hideModal() { modal.style.display = 'none'; }
+        if (closeBtn) closeBtn.addEventListener('click', hideModal);
+        if (modal) {
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) { hideModal(); }
+            });
+        }
+        
+        // --- BOOKING LOGIC ---
+        
+        const ROOM_RATES = {
+            Deluxe: 2500,
+            Suite: 5000,
+            Standard: 1800
+        };
+        const GST_RATE = 0.18; // 18%
+
+        function calculateCost(roomType, checkinDate, checkoutDate) {
+            const rate = ROOM_RATES[roomType];
+            if (!rate) return null;
+
+            const checkin = new Date(checkinDate);
+            const checkout = new Date(checkoutDate);
+
+            // Calculate number of nights
+            const diffTime = Math.abs(checkout - checkin);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const nights = diffDays > 0 ? diffDays : 1; 
+
+            const subtotal = rate * nights;
+            const gstAmount = subtotal * GST_RATE;
+            const totalCost = subtotal + gstAmount;
+
+            return {
+                nights,
+                rate,
+                subtotal: subtotal.toFixed(2),
+                gstAmount: gstAmount.toFixed(2),
+                totalCost: totalCost.toFixed(2)
+            };
+        }
+
+        function displayBookingDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const roomType = params.get('room');
+            const checkin = params.get('checkin');
+            const checkout = params.get('checkout');
+
+            if (!roomType || !checkin || !checkout || !ROOM_RATES[roomType]) {
+                document.querySelector('.details-container').innerHTML = 
+                    '<h2 style="color:red;">Error: Booking details missing.</h2><p>Please return to the <a href="index.html">Home Page</a> to start your booking.</p>';
+                return;
+            }
+
+            const costData = calculateCost(roomType, checkin, checkout);
+            
+            // Update Summary Display
+            document.getElementById('room-title').textContent = `Booking: ${roomType} Room`;
+            document.getElementById('summary-room').textContent = roomType;
+            document.getElementById('summary-dates').textContent = `${checkin} to ${checkout}`;
+            document.getElementById('summary-nights').textContent = costData.nights;
+            document.getElementById('base-rate-display').textContent = costData.rate.toFixed(2);
+            document.getElementById('subtotal-display').textContent = costData.subtotal;
+            document.getElementById('gst-rate-display').textContent = (GST_RATE * 100).toFixed(0);
+            document.getElementById('gst-amount-display').textContent = costData.gstAmount;
+            document.getElementById('total-cost-display').textContent = costData.totalCost;
+
+            // Set hidden form fields for submission
+            document.getElementById('hidden-room').value = roomType;
+            document.getElementById('hidden-checkin').value = checkin;
+            document.getElementById('hidden-checkout').value = checkout;
+            document.getElementById('hidden-total-cost').value = costData.totalCost;
+            document.getElementById('hidden-base-rate').value = costData.rate;
+            document.getElementById('hidden-gst-rate').value = GST_RATE;
+        }
+
+        async function handleFinalSubmission(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const totalCost = form.querySelector('#hidden-total-cost').value;
+            
+            const finalBookingData = {
+                name: form.querySelector('#customer-name').value,
+                mobile: form.querySelector('#customer-mobile').value,
+                email: form.querySelector('#customer-email').value,
+                roomType: form.querySelector('#hidden-room').value,
+                checkin: form.querySelector('#hidden-checkin').value,
+                checkout: form.querySelector('#hidden-checkout').value,
+                totalCost: totalCost,
+                baseRate: form.querySelector('#hidden-base-rate').value,
+                gstRate: form.querySelector('#hidden-gst-rate').value,
+            };
+
+            // Disable button and show loading state
+            const submitBtn = form.querySelector('.final-book-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing Request...';
+
+            try {
+                const response = await fetch('http://localhost:3000/book-room', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(finalBookingData)
+                });
+
+                if (response.ok) {
+                    showModal(
+                        'Request Sent!', 
+                        `Your booking request for ₹${totalCost} has been submitted successfully. We will contact you at <b>${finalBookingData.email}</b> shortly to confirm availability and payment details.`,
+                        true
+                    );
+                    form.reset();
+                } else {
+                    const error = await response.json();
+                    showModal('Booking Failed', error.message || 'Server error occurred. Please try again.', false);
+                }
+            } catch (error) {
+                showModal('Booking Failed', 'Cannot connect to the hotel server. Please check your connection or call us directly.', false);
+                console.error('Final booking submission error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Confirm Reservation Request';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayBookingDetails();
+            document.getElementById('final-booking-form').addEventListener('submit', handleFinalSubmission);
+        });
+    </script>
+</body>
+</html>

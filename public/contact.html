@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Sai Krishna Hotel - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="SSK Hotel Logo" class="navbar-logo">
+                </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contact" class="contact-section" style="min-height: 80vh;">
+        <h2>Contact Us</h2>
+        <p>Send us your inquiry below and we will get back to you shortly.</p>
+        
+        <div class="contact-form-container">
+            <form id="contact-form"> 
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>Call us: +91 9491797929 | Email: info@hotelssk.com</p>
+    </section>
+ 
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Hotel SSK</p>
+                <p>123 Main Street, Vijayawada, India</p>
+                <p>Email: info@hotelssk.com</p>
+                <p>Phone: +91 9491797929</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms & Conditions</a></li>
+                    <li><a href="/refund.html">Refund Policy</a></li>
+                    <li><a href="/faqs.html">FAQ's</a></li>
+                    <li><a href="/attractions.html">Nearby Attractions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="footer-social">
+                    <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Find Us</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.284207614735!2d80.6181830741894!3d16.511743427441495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f18856acb04b%3A0x44d2f6f3c03606af!2sHotel%20Sri%20Sai%20Krishna!5e0!3m2!1sen!2sin!4v1760683890954!5m2!1sen!2sin " width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Hotel Sri Sai Krishna | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Custom script for handling the contact form submission via Node.js server
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Message Sent Successfully! We will respond to your email shortly.');
+                    this.reset();
+                } else {
+                    alert('Failed to send message. Please try again or call us.');
+                }
+            } catch (error) {
+                console.error('Submission Error:', error);
+                alert('An error occurred. The server may be offline.');
+            }
+        });
+    </script>
+</body>
+</html>
